@@ -1,0 +1,24 @@
+package com.example.demo.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import com.example.demo.entity.User;
+import com.example.demo.repo.UserRepository;
+
+@Service
+
+public class UserService {
+
+	@Autowired
+	private UserRepository userRepository;
+
+	public User saveUser(User user) {
+//		log.info("message");
+		return userRepository.save(user);
+	}
+
+	public User findUserById(Long userId) {
+//		log.info("inside user service saveUser");
+		return userRepository.findByUserId(userId);
+	}
+}
